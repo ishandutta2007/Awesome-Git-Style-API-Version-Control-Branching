@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0c16" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#070913" />
+    </linearGradient>
+
+    <!-- Dynamic Glowing Orbs Gradients -->
+    <radialGradient id="orb1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="orb2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="orb3" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Text Gradients -->
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+    <linearGradient id="subGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f1f5f9" />
+      <stop offset="100%" stop-color="#cbd5e1" />
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.7" opacity="0.6" />
+    </pattern>
+
+    <!-- Filter for glow -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <style>
+      .pulse-slow {
+        animation: pulse 8s ease-in-out infinite alternate;
+      }
+      .pulse-fast {
+        animation: pulse 5s ease-in-out infinite alternate;
+      }
+      .dash-flow {
+        stroke-dasharray: 8 6;
+        animation: flow 20s linear infinite;
+      }
+      .node-pulse {
+        animation: nodeGlow 3s ease-in-out infinite alternate;
+      }
+      @keyframes pulse {
+        0% { transform: scale(1) translate(0, 0); opacity: 0.4; }
+        100% { transform: scale(1.15) translate(30px, -20px); opacity: 0.8; }
+      }
+      @keyframes flow {
+        from { stroke-dashoffset: 200; }
+        to { stroke-dashoffset: 0; }
+      }
+      @keyframes nodeGlow {
+        0% { r: 5; opacity: 0.6; }
+        100% { r: 8; opacity: 1; filter: drop-shadow(0 0 8px #38bdf8); }
+      }
+    </style>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1200" height="420" fill="url(#bgGrad)" rx="16" />
+
+  <!-- Background Grid -->
+  <rect width="1200" height="420" fill="url(#grid)" rx="16" />
+
+  <!-- Dynamic Glowing Orbs (Behind content) -->
+  <g>
+    <circle cx="200" cy="120" r="180" fill="url(#orb1)" class="pulse-slow" />
+    <circle cx="1020" cy="300" r="220" fill="url(#orb2)" class="pulse-fast" />
+    <circle cx="950" cy="90" r="140" fill="url(#orb3)" class="pulse-slow" />
+  </g>
+
+  <!-- Git Branching Visualization (Background / Structural) -->
+  <g opacity="0.4" transform="translate(0, 40)">
+    <!-- Main branch -->
+    <path d="M 50 310 L 1150 310" stroke="#38bdf8" stroke-width="2.5" class="dash-flow" />
+    <!-- Feature Branch 1 -->
+    <path d="M 280 310 C 340 310, 360 250, 430 250 L 750 250 C 810 250, 830 310, 890 310" fill="none" stroke="#a855f7" stroke-width="2" stroke-dasharray="6 4" />
+    <!-- Feature Branch 2 (Spec-first API PR) -->
+    <path d="M 500 250 C 550 250, 570 190, 630 190 L 700 190 C 740 190, 760 250, 800 250" fill="none" stroke="#10b981" stroke-width="1.8" stroke-dasharray="4 4" />
+
+    <!-- Branch Nodes -->
+    <circle cx="280" cy="310" r="6" fill="#38bdf8" />
+    <circle cx="430" cy="250" r="6" fill="#a855f7" />
+    <circle cx="630" cy="190" r="6" fill="#10b981" />
+    <circle cx="700" cy="190" r="6" fill="#10b981" />
+    <circle cx="800" cy="250" r="6" fill="#a855f7" />
+    <circle cx="890" cy="310" r="6" fill="#38bdf8" />
+  </g>
+
+  <!-- Foreground Content: Header & Text -->
+  <!-- Top Badge Pill -->
+  <g transform="translate(600, 75)">
+    <rect x="-195" y="-16" width="390" height="32" rx="16" fill="#1e293b" stroke="#334155" stroke-width="1" />
+    <circle cx="-170" cy="0" r="5" fill="#10b981">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <text x="-152" y="5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#94a3b8" letter-spacing="1.5">
+      SPEC-FIRST VERSION CONTROL &amp; FORGES
+    </text>
+  </g>
+
+  <!-- Title (Foreground) -->
+  <text x="600" y="150" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="44" font-weight="800" fill="url(#titleGrad)" letter-spacing="-0.5">
+    Git-Style API Version Control &amp; Branching
+  </text>
+
+  <!-- Subtitle (Foreground) -->
+  <text x="600" y="195" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="20" font-weight="500" fill="url(#subGrad)">
+    Curated Hub of SaaS Platforms, Self-Hosted Git Forges &amp; Spec-First Workflows
+  </text>
+
+  <!-- Tagline / Bullets (Foreground) -->
+  <text x="600" y="235" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#94a3b8">
+    OpenAPI Reviews • Trunk-Based Branching • PR/MR Gatekeeping • Self-Hosted Sovereignty
+  </text>
+
+  <!-- Dynamic Feature Badges in Foreground -->
+  <g transform="translate(600, 300)">
+    <!-- Pill 1 -->
+    <g transform="translate(-320, 0)">
+      <rect x="-85" y="-16" width="170" height="32" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1" opacity="0.9" />
+      <text x="0" y="5" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" fill="#38bdf8">🌿 Branching Models</text>
+    </g>
+    <!-- Pill 2 -->
+    <g transform="translate(-105, 0)">
+      <rect x="-90" y="-16" width="180" height="32" rx="8" fill="#1e293b" stroke="#818cf8" stroke-width="1" opacity="0.9" />
+      <text x="0" y="5" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" fill="#818cf8">🔄 Merge Request PRs</text>
+    </g>
+    <!-- Pill 3 -->
+    <g transform="translate(105, 0)">
+      <rect x="-90" y="-16" width="180" height="32" rx="8" fill="#1e293b" stroke="#c084fc" stroke-width="1" opacity="0.9" />
+      <text x="0" y="5" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" fill="#c084fc">🛡️ Branch Protection</text>
+    </g>
+    <!-- Pill 4 -->
+    <g transform="translate(320, 0)">
+      <rect x="-85" y="-16" width="170" height="32" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1" opacity="0.9" />
+      <text x="0" y="5" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" fill="#10b981">🚀 Self-Hosted Forges</text>
+    </g>
+  </g>
+
+  <!-- Border Outline -->
+  <rect x="1" y="1" width="1198" height="418" rx="15" fill="none" stroke="#334155" stroke-width="1.5" opacity="0.5" />
+</svg>
