@@ -79,7 +79,7 @@ Curated list of self-hosted Git forges, distributed code review engines, and rep
 
 ### ⭐ Top Tier Self-Hosted Git Forges & Code Review Tools
 
-| Project | Star Badge | Description |
+| Project | Stars_Badge | Description |
 |---------|------------|-------------|
 | **[Gitea](https://github.com/go-gitea/gitea)** | [![Stars](https://img.shields.io/github/stars/go-gitea/gitea?style=social&color=white)](https://github.com/go-gitea/gitea/stargazers) | **The most popular lightweight self-hosted Git forge.** Written in Go and MIT-licensed, running comfortably in **~100 MB RAM** on a Raspberry Pi. Provides **merge requests, branch protection, CODEOWNERS, and webhooks** for spec-first API workflows. Use `tea` CLI for terminal operations. |
 | **[Gogs](https://github.com/gogs/gogs)** | [![Stars](https://img.shields.io/github/stars/gogs/gogs?style=social&color=white)](https://github.com/gogs/gogs/stargazers) | **A painless self-hosted Git service.** The original ultra-lightweight Go-based Git forge that inspired Gitea. Features an exceptionally simple setup, low resource consumption, basic pull requests, and webhooks suitable for minimalist teams. |
@@ -107,7 +107,7 @@ Contributions are welcome! To contribute:
 
 1. 🍴 Fork the repository.
 2. 📝 Add or update entries in `README.md` following the existing format.
-3. 🔍 Ensure descriptions are objective, links are working, and star badges link to `/stargazers`.
+3. 🔍 Ensure descriptions are objective, links are working, and Stars_Badges link to `/stargazers`.
 4. 🚀 Submit a Pull Request with a clear description of the addition.
 
 ---
@@ -141,3 +141,12 @@ Thank you for supporting open-source software!
 <div align="center">
   <sub>Made with ❤️ for API architects, platform engineers, and teams treating specifications as code.</sub>
 </div>
+
+## ⭐ Star History
+
+<a href="https://star-history.com/#ishandutta2007/Awesome-Git-Style-API-Version-Control-Branching&Timeline" align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/ishandutta2007_Awesome-Git-Style-API-Version-Control-Branching_growth.svg">
+    <img alt="Star History Chart" src="assets/ishandutta2007_Awesome-Git-Style-API-Version-Control-Branching_growth.svg">
+  </picture>
+</a>
